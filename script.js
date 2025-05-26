@@ -23,11 +23,17 @@ form.addEventListener('submit', async function(e){
         const{name, main:{ temp, humidity}, weather} = data;
         const description = weather[0].description;
 
+        const iconCode = weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
         result.innerHTML=`
+
             <h2> The Weather in ${city}</h2>
+            <img src = "${iconUrl}" alt = "description"/>
             <p><strong> Tempreaature</strong> ${temp} celcius<p>
             <p><strong> Weather</strong> ${description} <p>
             <p><strong> Humidity</strong> ${humidity} %<p>
+
             `;
 
 
